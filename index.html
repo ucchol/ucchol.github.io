@@ -1,13 +1,15 @@
 <!doctype html>
 <!--
-  ASIF RAHMAN — personal site
-  One file, no build step, made for GitHub Pages.
+  ASIF RAHMAN — home page.
 
-  How to update:
-    News          → search for "ADD NEWS HERE"
-    Publications  → search for "ADD PUBLICATION HERE"
-    Extra links   → search for "OPTIONAL LINKS"
-  Edit, commit, and the site redeploys in about a minute.
+  The site is four pages that share style.css:
+    index.html         this page, intro and about
+    research.html      research threads
+    publications.html  paper list
+    news.html          dated updates
+
+  The nav, the contact block, and the footer are repeated in each of the
+  four files. If you change one, change it in all four.
 -->
 <html lang="en">
 <head>
@@ -19,121 +21,19 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=STIX+Two+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --paper:#F3F5F0;
-    --ink:#182420;
-    --muted:#4E5D56;
-    --line:#C9D2C7;
-    --grid:rgba(24,36,32,.05);
-    --defender:#1F4FBF;   /* links, the quantal curve */
-    --attacker:#C03B2D;   /* reserved for attacker marks in figures */
-    --serif:"STIX Two Text",Georgia,serif;
-    --mono:"IBM Plex Mono",ui-monospace,monospace;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{
-    font-family:var(--serif);
-    font-size:1.05rem;
-    line-height:1.7;
-    color:var(--ink);
-    background-color:var(--paper);
-    background-image:
-      linear-gradient(var(--grid) 1px, transparent 1px),
-      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
-    background-size:36px 36px;
-  }
-  a{color:var(--defender);text-decoration-thickness:1px;text-underline-offset:3px}
-  a:hover{text-decoration-thickness:2px}
-  :focus-visible{outline:2px solid var(--defender);outline-offset:3px;border-radius:2px}
-  .skip{position:absolute;left:-999px;top:0;background:var(--ink);color:var(--paper);padding:.5rem .8rem}
-  .skip:focus{left:.5rem;top:.5rem;z-index:10}
-  .wrap{max-width:780px;margin:0 auto;padding:0 1.4rem}
-
-  /* top nav */
-  .nav{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;flex-wrap:wrap;padding:1.4rem 0}
-  .nav .who{font-family:var(--mono);font-weight:500;font-size:.9rem;color:var(--ink);text-decoration:none}
-  .nav ul{display:flex;gap:1.1rem;list-style:none;flex-wrap:wrap}
-  .nav ul a{font-family:var(--mono);font-size:.82rem;color:var(--muted);text-decoration:none}
-  .nav ul a:hover{color:var(--defender);text-decoration:underline}
-
-  /* hero */
-  .hero{padding:3.2rem 0 1rem}
-  .hero-top{display:flex;gap:2.4rem;align-items:flex-start;justify-content:space-between;flex-wrap:wrap}
-  .portrait{width:clamp(150px,24vw,200px);height:auto;flex:none;border:1px solid var(--line);background:#fff;padding:6px}
-  .hero h1{font-weight:600;font-size:clamp(2.4rem,7vw,3.8rem);line-height:1.08;letter-spacing:-.01em}
-  .hero .thesis{margin-top:1.1rem;font-size:1.28rem;line-height:1.5;max-width:34ch}
-  .hero .meta{margin-top:1.3rem;font-family:var(--mono);font-size:.85rem;color:var(--muted);line-height:1.8}
-
-  /* figure */
-  .fig{margin:2.6rem 0 0;border:1px solid var(--line);background:rgba(255,255,255,.55);padding:1.2rem 1.2rem .9rem}
-  .fig svg{display:block;width:100%;height:auto}
-  .fig .axis{stroke:var(--muted);stroke-width:1}
-  .fig .tick{font-family:var(--mono);font-size:11px;fill:var(--muted)}
-  .fig .br{stroke:var(--muted);stroke-width:1.75;fill:none;stroke-dasharray:5 5}
-  .fig .qr{stroke:var(--defender);stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round;
-           stroke-dasharray:820;stroke-dashoffset:820;animation:draw 1.6s ease-out .3s forwards}
-  @keyframes draw{to{stroke-dashoffset:0}}
-  .fig .lab-br{font-family:var(--mono);font-size:12px;fill:var(--muted)}
-  .fig .lab-qr{font-family:var(--mono);font-size:12px;fill:var(--defender)}
-  figcaption{margin-top:.7rem;font-size:.92rem;color:var(--muted)}
-  figcaption b{color:var(--ink);font-weight:600}
-  @media (prefers-reduced-motion:reduce){
-    html{scroll-behavior:auto}
-    .fig .qr{animation:none;stroke-dashoffset:0}
-  }
-
-  /* sections */
-  section{margin-top:4.2rem;border-top:1px solid var(--line);padding-top:1.8rem}
-  .eyebrow{font-family:var(--mono);font-weight:500;font-size:.82rem;letter-spacing:.1em;color:var(--muted);margin-bottom:1.2rem}
-  .eyebrow .s{color:var(--defender)}
-  section p{max-width:66ch}
-  section p + p{margin-top:1rem}
-  h3{font-weight:600;font-size:1.15rem;margin:1.8rem 0 .5rem}
-  h3:first-of-type{margin-top:0}
-
-  /* publications */
-  .pub{display:grid;grid-template-columns:4.2rem 1fr;gap:1rem;margin-top:1.6rem}
-  .pub:first-of-type{margin-top:0}
-  .pub-year{font-family:var(--mono);font-size:.85rem;color:var(--muted);padding-top:.25rem}
-  .pub-title{font-weight:600;font-size:1.08rem;line-height:1.45}
-  .pub-authors{margin-top:.25rem;color:var(--muted);font-size:.98rem}
-  .pub-authors b{color:var(--ink);font-weight:600}
-  .pub-links{margin-top:.35rem;font-family:var(--mono);font-size:.82rem;display:flex;gap:1rem;flex-wrap:wrap;align-items:center}
-  .chip{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;color:var(--ink);border:1px solid var(--line);background:rgba(255,255,255,.6);padding:.1rem .5rem;border-radius:99px}
-
-  /* news */
-  .news{list-style:none}
-  .news li{display:grid;grid-template-columns:7.2rem 1fr;gap:1rem;padding:.65rem 0;border-bottom:1px dashed var(--line)}
-  .news li:last-child{border-bottom:none}
-  .news .d{font-family:var(--mono);font-size:.85rem;color:var(--muted);padding-top:.15rem}
-  .news p{max-width:60ch}
-
-  /* contact + footer */
-  .links{margin-top:1rem;font-family:var(--mono);font-size:.88rem;display:flex;gap:1.4rem;flex-wrap:wrap}
-  footer{margin-top:4.5rem;border-top:1px solid var(--line);padding:1.6rem 0 2.6rem;
-         font-family:var(--mono);font-size:.8rem;color:var(--muted);
-         display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
-
-  @media (max-width:560px){
-    .pub{grid-template-columns:1fr}
-    .pub-year{padding-top:0}
-    .news li{grid-template-columns:1fr;gap:.15rem}
-  }
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 <a class="skip" href="#about">Skip to content</a>
 <div class="wrap">
 
   <nav class="nav" aria-label="Site">
-    <a class="who" href="#top">A. Rahman</a>
+    <a class="who" href="index.html">A. Rahman</a>
     <ul>
-      <li><a href="#about">about</a></li>
-      <li><a href="#research">research</a></li>
-      <li><a href="#publications">publications</a></li>
-      <li><a href="#news">news</a></li>
+      <li><a href="index.html" class="here">about</a></li>
+      <li><a href="research.html">research</a></li>
+      <li><a href="publications.html">publications</a></li>
+      <li><a href="news.html">news</a></li>
       <li><a href="#contact">contact</a></li>
       <li><a href="CV.pdf" target="_blank" rel="noopener">CV</a></li>
     </ul>
@@ -143,7 +43,7 @@
     <div class="hero-top">
       <div>
         <h1>Asif Rahman</h1>
-        <p class="thesis">I build cyber defenses for real attackers. A game theory enthusiast, an artificial intelligence pragmatist, and a researcher who leverages psychological constructs against both human and AI attackers. </p>
+        <p class="thesis">I build cyber defenses for real attackers. A game theory enthusiast, an artificial intelligence pragmatist, and a researcher who leverages psychological constructs against both human and AI attackers.</p>
         <p class="meta">
           PhD student, Computer Science<br>
           The University of Texas at El Paso (UTEP)<br>
@@ -176,99 +76,10 @@
     <p class="eyebrow"><span class="s">§</span> about</p>
     <p>I study how people attack computer systems and how defenders can use their habits against them. Classical security games assume an adversary who always finds the best move. The attackers in our experiments do something messier. They skim dense tables, lean on two or three attributes, and settle for a target that looks good enough. My work measures that behavior in the lab, models it with tools from cognitive science and game theory, and folds the models back into defensive planning.</p>
     <p>So far this has produced two threads. One asks how a defender should plan deception when the attacker responds noisily and the model of that noise may itself be wrong. The other runs behavioral experiments where people attack simulated systems, then fits cognitive process models to their choices. I collaborate with researchers at UTEP and the DEVCOM Army Research Laboratory, and my current work brings agentic AI attackers and reinforcement learning into these models.</p>
+    <p><a href="research.html">More on the research</a>, or see the <a href="publications.html">publications</a>.</p>
   </section>
 
-  <section id="research">
-    <p class="eyebrow"><span class="s">§</span> research</p>
-
-    <h3>Quantal Stackelberg deception</h3>
-    <p>Security games usually let the defender commit to a strategy and assume the attacker answers with a best response. I replace that step with a quantal response and ask what the defender should do when even the noise model may be misspecified. In our GameSec 2026 paper this style of planning works like insurance. It gives up a little value when the attacker model is right and protects a lot of it when the model is wrong. The testbed is a cyber-physical network of sixteen nodes built from real CVE entries.</p>
-
-    <h3>Attacker cognition and choice overload</h3>
-    <p>People choosing from big menus with lots of information often make slower and worse decisions. Our GameSec 2025 paper shows cyber attackers are no exception. In behavioral experiments on tasks like file exfiltration, more options and denser information degraded the quality of their targeting. That points toward defenses that work by making the attacker's decision harder rather than only making the system stronger.</p>
-  </section>
-
-  <section id="publications">
-    <p class="eyebrow"><span class="s">§</span> publications</p>
-    <!-- ADD PUBLICATION HERE: copy one .pub block, edit, keep newest on top -->
-
-    <div class="pub">
-      <span class="pub-year">2026</span>
-      <div>
-        <p class="pub-title">Beyond Best Response: Quantal Stackelberg Deception as Insurance Against Attacker Misspecification</p>
-        <p class="pub-authors"><b>Asif Rahman</b>, Ahmed Ann Noor Ryen, Ahmed Hemida <!-- TODO: complete and order the full author list --></p>
-        <p class="pub-links"><span class="chip">GameSec 2026 · accepted, oral</span>
-          <!-- once the paper is online: <a href="URL">pdf</a> <a href="URL">doi</a> -->
-        </p>
-      </div>
-    </div>
-
-    <div class="pub">
-      <span class="pub-year">2026</span>
-      <div>
-        <p class="pub-title">Coordinated Multi-Domain Deception: A Stackelberg Game Approach</p>
-        <p class="pub-authors">Md Abu Sayed, <b>Asif Rahman</b>, Ahmed Hemida, Christopher D. Kiekintveld, Charles A. Kamhoua</p>
-        <p class="pub-links"><span class="chip">ICNC 2026 · pp. 85–89</span>
-          <a href="https://arxiv.org/abs/2601.02596">arxiv</a>
-        </p>
-      </div>
-    </div>
-
-    <div class="pub">
-      <span class="pub-year">2025</span>
-      <div>
-        <p class="pub-title">Using Choice Overload to Degrade Cyber Attacks</p>
-        <p class="pub-authors"><b>Asif Rahman</b>, Carlos Natividad, Md Abu Sayed, Palvi Aggarwal, Christopher D. Kiekintveld</p>
-        <p class="pub-links"><span class="chip">GameSec 2025 · LNCS 16224</span>
-          <a href="https://doi.org/10.1007/978-3-032-08067-7_2">doi</a>
-          <a href="https://github.com/ucchol/Choice-Overload-in-Cyber-Defense">code</a>
-        </p>
-      </div>
-    </div>
-
-    <div class="pub">
-      <span class="pub-year">2025</span>
-      <div>
-        <p class="pub-title">MAD-OOD: A Deep Learning Cluster-Driven Framework for Out-of-Distribution Malware Detection and Classification</p>
-        <p class="pub-authors">Tosin Ige, Christopher D. Kiekintveld, Aritran Piplai, <b>Asif Rahman</b>, Olukunle Kolade, Sasidhar Kunapuli</p>
-        <p class="pub-links"><span class="chip">TrustCom</span>
-          <a href="https://arxiv.org/abs/2512.17594">arxiv</a>
-        </p>
-      </div>
-    </div>
-
-    <div class="pub">
-      <span class="pub-year">2024</span>
-      <div>
-        <p class="pub-title">Fine-tuning Large Language Models for DGA and DNS Exfiltration Detection</p>
-        <p class="pub-authors">Md Abu Sayed, <b>Asif Rahman</b>, Christopher D. Kiekintveld, Sebastián García</p>
-        <p class="pub-links"><span class="chip">ACSAC Workshops 2024</span>
-          <a href="https://doi.org/10.1109/ACSACW65225.2024.00034">doi</a>
-          <a href="https://arxiv.org/abs/2410.21723">arxiv</a>
-        </p>
-      </div>
-    </div>
-
-    <p class="links" style="margin-top:1.8rem">
-      <a href="https://scholar.google.com/citations?user=FfLKS8AAAAAJ">full list on google scholar</a>
-    </p>
-  </section>
-
-  <section id="news">
-    <p class="eyebrow"><span class="s">§</span> news</p>
-    <ul class="news">
-      <!-- ADD NEWS HERE: copy the <li> below, put the new one FIRST, change the date and text
-      <li><span class="d">2026-08-14</span><p>One or two sentences about the update.</p></li>
-      -->
-      <li><span class="d">2026-07-22</span><p><em>Beyond Best Response: Quantal Stackelberg Deception as Insurance Against Attacker Misspecification</em> is accepted for an oral presentation at GameSec 2026.</p></li>
-      <li><span class="d">2026-07-13</span><p>Selected as a program committee member for AI for Social Impact (AISI) at AAAI 2027.</p></li>
-      <li><span class="d">2025-10-15</span><p>Presented <em>Using Choice Overload to Degrade Cyber Attacks</em> at GameSec 2025 in Athens, Greece.</p></li>
-      <li><span class="d">2025-10-13</span><p><em>Using Choice Overload to Degrade Cyber Attacks</em> appears in the GameSec 2025 proceedings.</p></li>
-      <li><span class="d">2025-10-11</span><p>Received a partial travel grant to attend GameSec 2025.</p></li>
-      <li><span class="d">2025-09-29</span><p>Selected as a program committee member for AI for Social Impact (AISI) at AAAI 2026.</p></li>
-    </ul>
-  </section>
-
+  <!-- CONTACT: same block on every page -->
   <section id="contact">
     <p class="eyebrow"><span class="s">§</span> contact</p>
     <p>Email is the fastest way to reach me.</p>
@@ -277,7 +88,6 @@
       <a href="https://orcid.org/0009-0004-4939-2065">orcid</a>
       <a href="https://github.com/ucchol">github</a>
       <a href="https://www.linkedin.com/in/asif5028/">linkedin</a>
-    </p>
     </p>
   </section>
 

@@ -1,0 +1,68 @@
+<!doctype html>
+<!-- ASIF RAHMAN — research page. Shares style.css with the other pages. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Research | Asif Rahman</title>
+<meta name="description" content="Research on quantal Stackelberg deception, attacker cognition, and machine learning for threat detection.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23182420'/%3E%3Cpath d='M6 24 C 15 24 15 8 26 8' stroke='%236d93ff' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=STIX+Two+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+
+  <nav class="nav" aria-label="Site">
+    <a class="who" href="index.html">A. Rahman</a>
+    <ul>
+      <li><a href="index.html">about</a></li>
+      <li><a href="research.html" class="here">research</a></li>
+      <li><a href="publications.html">publications</a></li>
+      <li><a href="news.html">news</a></li>
+      <li><a href="#contact">contact</a></li>
+      <li><a href="CV.pdf" target="_blank" rel="noopener">CV</a></li>
+    </ul>
+  </nav>
+
+  <header class="pagehead">
+    <h1>Research</h1>
+    <p>Three threads, all asking what changes when the adversary is a bounded decision maker rather than a perfect optimizer.</p>
+  </header>
+
+  <section id="main">
+    <h3>Quantal Stackelberg deception</h3>
+    <p>Security games usually let the defender commit to a strategy and assume the attacker answers with a best response. I replace that step with a quantal response and ask what the defender should do when even the noise model may be misspecified. In our GameSec 2026 paper this style of planning works like insurance. It gives up a little value when the attacker model is right and protects a lot of it when the model is wrong. The testbed is a cyber-physical network of sixteen nodes built from real CVE entries.</p>
+
+    <h3>Attacker cognition and choice overload</h3>
+    <p>People choosing from big menus with lots of information often make slower and worse decisions. Our GameSec 2025 paper shows cyber attackers are no exception. In behavioral experiments on tasks like file exfiltration, more options and denser information degraded the quality of their targeting. That points toward defenses that work by making the attacker's decision harder rather than only making the system stronger.</p>
+
+    <h3>Machine learning for threat detection</h3>
+    <p>Alongside the game-theoretic work, I build detectors for adversary infrastructure. That includes fine-tuned language models for domain generation algorithms and DNS exfiltration, evaluated across 59 real-world DGA families with emphasis on families never seen in training, and cluster-driven methods for flagging malware that falls outside every class a classifier knows.</p>
+
+    <p style="margin-top:2rem">Papers for all three threads are on the <a href="publications.html">publications page</a>.</p>
+  </section>
+
+  <!-- CONTACT: same block on every page -->
+  <section id="contact">
+    <p class="eyebrow"><span class="s">§</span> contact</p>
+    <p>Email is the fastest way to reach me.</p>
+    <p class="links">
+      <a href="mailto:arahman3@miners.utep.edu">arahman3@miners.utep.edu</a>
+      <a href="https://orcid.org/0009-0004-4939-2065">orcid</a>
+      <a href="https://github.com/ucchol">github</a>
+      <a href="https://www.linkedin.com/in/asif5028/">linkedin</a>
+    </p>
+  </section>
+
+  <footer>
+    <span>Asif Rahman</span>
+    <span>last updated 2026-08</span>
+  </footer>
+
+</div>
+</body>
+</html>
