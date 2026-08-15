@@ -60,6 +60,8 @@
 
   /* hero */
   .hero{padding:3.2rem 0 1rem}
+  .hero-top{display:flex;gap:2.4rem;align-items:flex-start;justify-content:space-between;flex-wrap:wrap}
+  .portrait{width:clamp(150px,24vw,200px);height:auto;flex:none;border:1px solid var(--line);background:#fff;padding:6px}
   .hero h1{font-weight:600;font-size:clamp(2.4rem,7vw,3.8rem);line-height:1.08;letter-spacing:-.01em}
   .hero .thesis{margin-top:1.1rem;font-size:1.28rem;line-height:1.5;max-width:34ch}
   .hero .meta{margin-top:1.3rem;font-family:var(--mono);font-size:.85rem;color:var(--muted);line-height:1.8}
@@ -140,13 +142,18 @@
   </nav>
 
   <header class="hero" id="top">
-    <h1>Asif Rahman</h1>
-    <p class="thesis">I build cyber defenses for the attackers we actually have, not the ones our models assume.</p>
-    <p class="meta">
-      PhD student, Computer Science<br>
-      The University of Texas at El Paso<br>
-      working with the DEVCOM Army Research Laboratory
-    </p>
+    <div class="hero-top">
+      <div>
+        <h1>Asif Rahman</h1>
+        <p class="thesis">I build cyber defenses for the attackers we actually have, not the ones our models assume.</p>
+        <p class="meta">
+          PhD student, Computer Science<br>
+          The University of Texas at El Paso<br>
+          working with the DEVCOM Army Research Laboratory
+        </p>
+      </div>
+      <img class="portrait" src="photo.jpg" alt="Asif Rahman" width="720" height="720">
+    </div>
 
     <figure class="fig">
       <svg viewBox="0 0 600 316" role="img" aria-labelledby="figtitle figdesc">
@@ -221,7 +228,11 @@
       -->
       <li><span class="d">2026-08-14</span><p>This site goes live.</p></li>
       <li><span class="d">2026-07-22</span><p><em>Beyond Best Response</em> is accepted for an oral presentation at GameSec 2026.</p></li>
+      <li><span class="d">2026-07-13</span><p>Selected as a program committee member for AI for Social Impact (AISI) at AAAI 2027.</p></li>
+      <li><span class="d">2025-10-15</span><p>Presented <em>Using Choice Overload to Degrade Cyber Attacks</em> at GameSec 2025 in Athens, Greece.</p></li>
       <li><span class="d">2025-10-13</span><p><em>Using Choice Overload to Degrade Cyber Attacks</em> appears in the GameSec 2025 proceedings.</p></li>
+      <li><span class="d">2025-10-11</span><p>Received a partial travel grant to attend GameSec 2025.</p></li>
+      <li><span class="d">2025-09-29</span><p>Selected as a program committee member for AI for Social Impact (AISI) at AAAI 2026.</p></li>
     </ul>
   </section>
 
