@@ -1,0 +1,250 @@
+<!doctype html>
+<!-- ASIF RAHMAN — projects page. Figures are inline SVG and retheme with the site. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projects | Asif Rahman</title>
+<meta name="description" content="Reinforcement learning for cyber defense and out-of-distribution threat detection, with results and code.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23182420'/%3E%3Cpath d='M6 24 C 15 24 15 8 26 8' stroke='%236d93ff' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=STIX+Two+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>
+(function(){try{var t=localStorage.getItem('theme');
+if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
+document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+
+  <nav class="nav" aria-label="Site">
+    <a class="who" href="index.html">A. Rahman</a>
+    <ul>
+      <li><a href="index.html">about</a></li>
+      <li><a href="research.html">research</a></li>
+      <li><a href="projects.html" class="here">projects</a></li>
+      <li><a href="publications.html">publications</a></li>
+      <li><a href="news.html">news</a></li>
+      <li><a href="#contact">contact</a></li>
+      <li><a href="CV.pdf" target="_blank" rel="noopener">CV</a></li>
+    </ul>
+  </nav>
+
+  <header class="pagehead">
+    <h1>Projects</h1>
+    <p>Systems built to answer a question rather than to demonstrate a technique. Both are scored on threats and conditions the model never trained on, which is the harder measurement and the one that matches how either would be deployed.</p>
+  </header>
+
+  <section id="main">
+
+    <nav class="toc" aria-label="On this page">
+      <a href="#ndrl">network-defense-rl</a>
+      <a href="#nxdomain">nxdomain-sentinel</a>
+    </nav>
+
+    <div data-filterable>
+
+      <article class="proj" id="ndrl" data-topic="reinforcement-learning game-theory cybersecurity">
+        <h3><a href="https://github.com/ucchol/network-defense-rl">network-defense-rl</a></h3>
+        <p class="tagline">Reinforcement learning for sequential cyber defense, benchmarked against a Quantal Stackelberg Equilibrium solver.</p>
+        <p class="meta">
+          <a href="https://github.com/ucchol/network-defense-rl">repository</a>
+          <a href="https://github.com/ucchol/network-defense-rl/blob/main/notebooks/network_defense_rl.ipynb">notebook</a>
+        </p>
+        <p class="stack"><span class="chip">Gymnasium</span><span class="chip">PPO / DQN</span><span class="chip">SciPy</span><span class="chip">PyTorch</span></p>
+
+        <p>A defender allocates scarce hardening and incident response across a network while a boundedly rational attacker probes it. The network changes size every episode, so the agent has to allocate sensibly whether it faces eight nodes or twenty, and the whole system is benchmarked against a Quantal Stackelberg Equilibrium solver rather than against weak baselines.</p>
+
+        <p>The trained defender holds up on network sizes it never saw. On held out networks of fifteen to twenty nodes it comes within a few tenths of a point of the equilibrium solver and beats the standard greedy heuristic, while tracking the solver closely on the sizes it trained on.</p>
+
+      <figure class="fig zoomable">
+<svg viewBox="0 0 600 300" role="img" aria-labelledby="fat fad">
+<title id="fat">Policy return on trained and held out network sizes</title>
+<desc id="fad">Four defender policies compared on the network sizes they trained on and on larger networks never seen in training. The two learned policies that saw only small networks collapse, while the equilibrium solver and the heuristic hold.</desc>
+<line class="axis" x1="74" y1="30" x2="74" y2="238.0"/>
+<line class="axis" x1="74" y1="30.0" x2="574" y2="30.0"/>
+<line class="gridline" x1="74" y1="30.0" x2="574" y2="30.0"/>
+<text class="tick" x="66" y="34.0" text-anchor="end">0</text>
+<line class="gridline" x1="74" y1="78.0" x2="574" y2="78.0"/>
+<text class="tick" x="66" y="82.0" text-anchor="end">-3</text>
+<line class="gridline" x1="74" y1="126.0" x2="574" y2="126.0"/>
+<text class="tick" x="66" y="130.0" text-anchor="end">-6</text>
+<line class="gridline" x1="74" y1="174.0" x2="574" y2="174.0"/>
+<text class="tick" x="66" y="178.0" text-anchor="end">-9</text>
+<line class="gridline" x1="74" y1="222.0" x2="574" y2="222.0"/>
+<text class="tick" x="66" y="226.0" text-anchor="end">-12</text>
+<text class="tick axlab" x="66" y="18" text-anchor="end">mean return</text>
+<rect class="bar s1" x="115.5" y="30.0" width="37.5" height="44.0"/>
+<text class="val" x="134.2" y="87.0" text-anchor="middle">-2.75</text>
+<rect class="bar s2" x="153.0" y="30.0" width="37.5" height="52.3"/>
+<text class="val" x="171.8" y="95.3" text-anchor="middle">-3.27</text>
+<text class="tick" x="136.5" y="268" text-anchor="middle">QSE</text>
+<rect class="bar s1" x="240.5" y="30.0" width="37.5" height="56.2"/>
+<text class="val" x="259.2" y="99.2" text-anchor="middle">-3.51</text>
+<rect class="bar s2" x="278.0" y="30.0" width="37.5" height="60.0"/>
+<text class="val" x="296.8" y="103.0" text-anchor="middle">-3.75</text>
+<text class="tick" x="261.5" y="268" text-anchor="middle">Greedy</text>
+<rect class="bar s1" x="365.5" y="30.0" width="37.5" height="46.6"/>
+<text class="val" x="384.2" y="89.6" text-anchor="middle">-2.91</text>
+<rect class="bar s2" x="403.0" y="30.0" width="37.5" height="194.1"/>
+<text class="val" x="421.8" y="237.1" text-anchor="middle">-12.13</text>
+<text class="tick" x="386.5" y="268" text-anchor="middle">PPO</text>
+<rect class="bar s1" x="490.5" y="30.0" width="37.5" height="49.0"/>
+<text class="val" x="509.2" y="92.0" text-anchor="middle">-3.06</text>
+<rect class="bar s2" x="528.0" y="30.0" width="37.5" height="58.2"/>
+<text class="val" x="546.8" y="101.2" text-anchor="middle">-3.64</text>
+<text class="tick" x="511.5" y="268" text-anchor="middle">PPO-DR</text>
+<rect class="bar s1" x="74" y="284" width="11" height="11"/>
+<text class="tick" x="90" y="294">8 to 14 nodes, trained</text>
+<rect class="bar s2" x="236.8" y="284" width="11" height="11"/>
+<text class="tick" x="252.8" y="294">15 to 20 nodes, held out</text>
+<text class="tick note" x="574" y="294" text-anchor="end">300 episodes, shared seeds</text>
+</svg>
+        <figcaption><b>Fig. 1.</b> Mean episode return over 300 episodes with shared seeds, so every policy faces identical networks. PPO-DR tracks the equilibrium solver on both trained and unseen network sizes.</figcaption>
+      </figure>
+
+        <div class="nums">
+          <div><p class="n">-3.64</p><p class="k">PPO-DR, held out sizes</p></div>
+          <div><p class="n">-3.27</p><p class="k">equilibrium solver</p></div>
+          <div><p class="n">-3.75</p><p class="k">greedy heuristic</p></div>
+        </div>
+
+        <p>Getting there took a diagnosis worth recording. Padding observations to a fixed width with an active mask is the standard pattern for variable sized problems, and on its own it does not deliver size generalisation, because nothing during training ever makes the extra action positions valid. Measuring where the policy actually placed its actions showed the effect immediately, and domain randomisation over the full size range closed it.</p>
+
+      <figure class="fig zoomable">
+<svg viewBox="0 0 600 300" role="img" aria-labelledby="fbt fbd">
+<title id="fbt">Actions placed on node slots never active during training</title>
+<desc id="fbd">The share of actions each agent places on node positions that were never valid during training. PPO places almost none. Domain randomisation restores it.</desc>
+<line class="axis" x1="74" y1="30" x2="74" y2="238.0"/>
+<line class="axis" x1="74" y1="238.0" x2="574" y2="238.0"/>
+<line class="gridline" x1="74" y1="238.0" x2="574" y2="238.0"/>
+<text class="tick" x="66" y="242.0" text-anchor="end">0</text>
+<text class="tick axlab" x="66" y="18" text-anchor="end">share of actions, percent</text>
+<rect class="bar s1" x="157.0" y="237.6" width="75.0" height="0.6"/>
+<text class="val" x="194.5" y="251.0" text-anchor="middle">0.08</text>
+<text class="tick" x="199.0" y="268" text-anchor="middle">PPO</text>
+<rect class="bar s1" x="407.0" y="94.0" width="75.0" height="144.0"/>
+<text class="val" x="444.5" y="251.0" text-anchor="middle">27.70</text>
+<text class="tick" x="449.0" y="268" text-anchor="middle">PPO-DR</text>
+<line class="br" x1="74" y1="66.4" x2="574" y2="66.4"/>
+<rect class="bar s1" x="74" y="284" width="11" height="11"/>
+<text class="tick" x="90" y="294">held out networks</text>
+<text class="tick note" x="574" y="294" text-anchor="end">dashed line, expected if generalising</text>
+</svg>
+        <figcaption><b>Fig. 2.</b> Share of actions landing on node positions that were never active during training. Domain randomisation over the full size range lifts it from 0.08 percent to 27.7, which confirms the mechanism directly rather than inferring it from the return.</figcaption>
+      </figure>
+
+        <p>Two further studies test how much the result depends on knowing the attacker. Sweeping attacker rationality across two orders of magnitude leaves the equilibrium allocation almost unchanged, which is why the defense stays robust when that parameter is estimated wrong. A final ablation isolates how much the equilibrium solve contributes over simpler value ordered allocation, and reports the margin with a paired test rather than asserting it.</p>
+      </article>
+
+      <article class="proj" id="nxdomain" data-topic="machine-learning cybersecurity out-of-distribution">
+        <h3><a href="https://github.com/ucchol/nxdomain-sentinel">nxdomain-sentinel</a></h3>
+        <p class="tagline">A domain threat classifier scored on malware families it has never seen, that reports how much that costs.</p>
+        <p class="meta">
+          <a href="https://github.com/ucchol/nxdomain-sentinel">repository</a>
+        </p>
+        <p class="stack"><span class="chip">PyTorch</span><span class="chip">character CNN</span><span class="chip">FastAPI</span><span class="chip">Cloud Run</span></p>
+
+        <p>Published DGA detectors routinely report accuracy above 0.99, measured on a random shuffle where every malware family appears in both training and test. This service measures the question a security team actually has, which is whether the detector fires on a family that did not exist when the model was trained.</p>
+
+        <p>The evaluation is paired. Every family is held out in exactly one fold and trained in the other four, so each family is compared against itself and family difficulty cancels out. That design matters, because the naive comparison can run backwards when a fold happens to hold out easy families. Under pairing, most families transfer nearly free and the cost concentrates in a handful.</p>
+
+      <figure class="fig zoomable">
+<svg viewBox="0 0 600 252" role="img" aria-labelledby="fct fcd">
+<title id="fct">Recall lost when a malware family is held out of training</title>
+<desc id="fcd">Per family recall cost from holding that family out. A handful of families collapse completely while most transfer nearly free, which is why a single averaged number hides the result.</desc>
+<line class="axis" x1="108" y1="20" x2="108" y2="208.0"/>
+<rect class="bar s2" x="108" y="30.0" width="412.2" height="16"/>
+<text class="tick" x="100" y="42.0" text-anchor="end">vawtrak</text>
+<text class="val" x="527.2" y="42.0">0.687</text>
+<rect class="bar s2" x="108" y="56.0" width="351.6" height="16"/>
+<text class="tick" x="100" y="68.0" text-anchor="end">qadars</text>
+<text class="val" x="466.6" y="68.0">0.586</text>
+<rect class="bar s2" x="108" y="82.0" width="223.8" height="16"/>
+<text class="tick" x="100" y="94.0" text-anchor="end">kraken</text>
+<text class="val" x="338.8" y="94.0">0.373</text>
+<rect class="bar s2" x="108" y="108.0" width="205.2" height="16"/>
+<text class="tick" x="100" y="120.0" text-anchor="end">pykspa</text>
+<text class="val" x="320.2" y="120.0">0.342</text>
+<rect class="bar s2" x="108" y="134.0" width="196.2" height="16"/>
+<text class="tick" x="100" y="146.0" text-anchor="end">simda</text>
+<text class="val" x="311.2" y="146.0">0.327</text>
+<rect class="bar s1" x="108" y="160.0" width="1.0" height="16"/>
+<text class="tick" x="100" y="172.0" text-anchor="end">murofet</text>
+<text class="val" x="115.0" y="172.0">0.000</text>
+<rect class="bar s1" x="108" y="186.0" width="21.6" height="16"/>
+<text class="tick" x="100" y="198.0" text-anchor="end">necurs</text>
+<text class="val" x="136.6" y="198.0">0.036</text>
+<text class="tick axlab" x="108" y="232">recall points lost</text>
+<text class="tick note" x="540" y="232" text-anchor="end">median 0.056, mean 0.149</text>
+</svg>
+        <figcaption><b>Fig. 3.</b> Recall cost per family at a fixed 0.1 percent false positive rate. Reporting families individually rather than as a single average is what makes the concentration visible.</figcaption>
+      </figure>
+
+        <div class="nums">
+          <div><p class="n">5.6 pts</p><p class="k">median recall cost</p></div>
+          <div><p class="n">0.72</p><p class="k">median novelty gate AUC</p></div>
+          <div><p class="n">1.03 ms</p><p class="k">per domain at batch 100</p></div>
+        </div>
+
+        <p>The evaluation also surfaced a structural limit worth designing around. Dictionary based families such as suppobox, matsnu and gozi build domains by concatenating real words, so at this capacity a character model has no representation for them whether they sit in training or not. Any honest DGA detector should report dictionary families separately rather than letting easy random string families carry the average.</p>
+
+        <p>So the service ships a second component alongside the classifier. A novelty gate fits one Gaussian per known family in the classifier's penultimate space and scores Mahalanobis distance to the nearest centroid, needing no out of distribution data to fit it. It answers a different question, which is whether a domain sits far from every family the model knows, and it fires precisely where the classifier is blind.</p>
+
+      <figure class="fig zoomable">
+<svg viewBox="0 0 600 300" role="img" aria-labelledby="fdt fdd">
+<title id="fdt">The novelty gate catches what the classifier misses</title>
+<desc id="fdd">On suppobox, a dictionary based family, the binary classifier has essentially zero recall whether the family is trained or held out, while the novelty gate separates it from known families with an AUC near 0.88.</desc>
+<line class="axis" x1="74" y1="30" x2="74" y2="238.0"/>
+<line class="axis" x1="74" y1="238.0" x2="574" y2="238.0"/>
+<line class="gridline" x1="74" y1="238.0" x2="574" y2="238.0"/>
+<text class="tick" x="66" y="242.0" text-anchor="end">0</text>
+<text class="tick axlab" x="66" y="18" text-anchor="end">score</text>
+<rect class="bar s1" x="129.3" y="238.0" width="50.0" height="0.6"/>
+<text class="val" x="154.3" y="251.0" text-anchor="middle">0.00</text>
+<text class="tick" x="157.3" y="268.0" text-anchor="middle"><tspan x="157.3" dy="0">classifier recall,</tspan><tspan x="157.3" dy="13">held out</tspan></text>
+<rect class="bar s1" x="296.0" y="237.4" width="50.0" height="0.6"/>
+<text class="val" x="321.0" y="251.0" text-anchor="middle">0.00</text>
+<text class="tick" x="324.0" y="268.0" text-anchor="middle"><tspan x="324.0" dy="0">classifier recall,</tspan><tspan x="324.0" dy="13">trained</tspan></text>
+<rect class="bar s1" x="462.7" y="55.0" width="50.0" height="183.0"/>
+<text class="val" x="487.7" y="251.0" text-anchor="middle">0.88</text>
+<text class="tick" x="490.7" y="268.0" text-anchor="middle"><tspan x="490.7" dy="0">novelty gate</tspan><tspan x="490.7" dy="13">AUC</tspan></text>
+<rect class="bar s1" x="74" y="284" width="11" height="11"/>
+<text class="tick" x="90" y="294">suppobox</text>
+<text class="tick note" x="574" y="294" text-anchor="end">dictionary DGA</text>
+</svg>
+        <figcaption><b>Fig. 4.</b> The two components are complementary. On suppobox the classifier has no signal while the gate separates it from known families at 0.8802, flagging 34 percent at a 5 percent false positive rate.</figcaption>
+      </figure>
+
+        <p>Scoring the gate correctly took care. Pooling every held out family in a fold into a single AUC averages genuinely novel families together with ones whose style is already well represented, and the pooled number reads as noise. Per family, the same fold ranges from 0.88 down to 0.31, and the repository reports it that way.</p>
+      </article>
+
+    </div>
+  </section>
+
+
+  <!-- CONTACT: same block on every page -->
+  <section id="contact">
+    <p class="eyebrow"><span class="s">&#167;</span> contact</p>
+    <p>Email is the fastest way to reach me.</p>
+    <p class="links">
+      <a class="mail" data-u="arahman3" data-d="miners.utep.edu">arahman3 at miners dot utep dot edu</a>
+      <a href="https://orcid.org/0009-0004-4939-2065">orcid</a>
+      <a href="https://github.com/ucchol">github</a>
+      <a href="https://www.linkedin.com/in/asif5028/">linkedin</a>
+    </p>
+  </section>
+
+  <footer>
+    <span>Asif Rahman</span>
+    <span>last updated 2026-08</span>
+  </footer>
+
+</div>
+<script src="site.js"></script>
+</body>
+</html>

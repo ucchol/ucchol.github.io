@@ -22,6 +22,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=STIX+Two+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script>
+(function(){try{var t=localStorage.getItem('theme');
+if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
+document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
 </head>
 <body>
 <a class="skip" href="#about">Skip to content</a>
@@ -32,6 +37,7 @@
     <ul>
       <li><a href="index.html" class="here">about</a></li>
       <li><a href="research.html">research</a></li>
+      <li><a href="projects.html">projects</a></li>
       <li><a href="publications.html">publications</a></li>
       <li><a href="news.html">news</a></li>
       <li><a href="#contact">contact</a></li>
@@ -64,10 +70,11 @@
         <text class="tick" x="66" y="16">P(attacker picks A)</text>
         <text class="tick" x="300" y="304" text-anchor="middle">payoff advantage of target A</text>
         <path class="br" d="M70 250 H300 V30 H530"/>
-        <polyline class="qr" points="70,248.7 90,248.0 110,246.8 130,245.1 150,242.4 170,238.4 190,232.4 210,223.8 230,211.7 250,195.5 270,175.4 290,152.2 300,140 310,127.8 330,104.6 350,84.5 370,68.3 390,56.2 410,47.6 430,41.6 450,37.6 470,34.9 490,32.8 510,32.0 530,31.3"/>
+        <polyline class="qr draw" id="qrcurve" points="70,248.7 90,248.0 110,246.8 130,245.1 150,242.4 170,238.4 190,232.4 210,223.8 230,211.7 250,195.5 270,175.4 290,152.2 300,140 310,127.8 330,104.6 350,84.5 370,68.3 390,56.2 410,47.6 430,41.6 450,37.6 470,34.9 490,32.8 510,32.0 530,31.3"/>
         <text class="lab-br" x="290" y="54" text-anchor="end">best response</text>
         <text class="lab-qr" x="362" y="150">quantal response</text>
       </svg>
+      <div class="slider" id="qrslider"></div>
       <figcaption><b>Fig. 1.</b> A perfectly rational attacker plays the step. Real attackers play the curve. Most of my research lives in the gap.</figcaption>
     </figure>
   </header>
@@ -84,7 +91,7 @@
     <p class="eyebrow"><span class="s">§</span> contact</p>
     <p>Email is the fastest way to reach me.</p>
     <p class="links">
-      <a href="mailto:arahman3@miners.utep.edu">arahman3@miners.utep.edu</a>
+      <a class="mail" data-u="arahman3" data-d="miners.utep.edu">arahman3 at miners dot utep dot edu</a>
       <a href="https://orcid.org/0009-0004-4939-2065">orcid</a>
       <a href="https://github.com/ucchol">github</a>
       <a href="https://www.linkedin.com/in/asif5028/">linkedin</a>
@@ -97,5 +104,6 @@
   </footer>
 
 </div>
+<script src="site.js"></script>
 </body>
 </html>

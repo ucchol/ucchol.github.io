@@ -14,6 +14,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=STIX+Two+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script>
+(function(){try{var t=localStorage.getItem('theme');
+if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
+document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -24,6 +29,7 @@
     <ul>
       <li><a href="index.html">about</a></li>
       <li><a href="research.html">research</a></li>
+      <li><a href="projects.html">projects</a></li>
       <li><a href="publications.html" class="here">publications</a></li>
       <li><a href="news.html">news</a></li>
       <li><a href="#contact">contact</a></li>
@@ -37,9 +43,10 @@
   </header>
 
   <section id="main">
+    <div data-filterable>
     <!-- ADD PUBLICATION HERE: copy one .pub block, edit, keep newest on top -->
 
-    <div class="pub">
+    <div class="pub" id="p-beyond" data-topic="game-theory cyber-deception">
       <span class="pub-year">2026</span>
       <div>
         <p class="pub-title">Beyond Best Response: Quantal Stackelberg Deception as Insurance Against Attacker Misspecification</p>
@@ -48,9 +55,18 @@
           <!-- once the paper is online: <a href="URL">pdf</a> <a href="URL">doi</a> -->
         </p>
       </div>
+      <script type="text/bibtex">
+@inproceedings{rahman2026beyond,
+  title     = {Beyond Best Response: Quantal Stackelberg Deception as Insurance
+               Against Attacker Misspecification},
+  author    = {Rahman, Asif and Ryen, Ahmed Ann Noor and Hemida, Ahmed},
+  booktitle = {Conference on Decision and Game Theory for Security (GameSec)},
+  year      = {2026}
+}
+      </script>
     </div>
 
-    <div class="pub">
+    <div class="pub" id="p-coordinated" data-topic="game-theory cyber-deception">
       <span class="pub-year">2026</span>
       <div>
         <p class="pub-title">Coordinated Multi-Domain Deception: A Stackelberg Game Approach</p>
@@ -59,9 +75,20 @@
           <a href="https://arxiv.org/abs/2601.02596">arxiv</a>
         </p>
       </div>
+      <script type="text/bibtex">
+@inproceedings{sayed2026coordinated,
+  title     = {Coordinated Multi-Domain Deception: A Stackelberg Game Approach},
+  author    = {Sayed, Md Abu and Rahman, Asif and Hemida, Ahmed and
+               Kiekintveld, Christopher D. and Kamhoua, Charles A.},
+  booktitle = {International Conference on Computing, Networking and
+               Communications (ICNC)},
+  pages     = {85--89},
+  year      = {2026}
+}
+      </script>
     </div>
 
-    <div class="pub">
+    <div class="pub" id="p-overload" data-topic="behavioral cyber-deception">
       <span class="pub-year">2025</span>
       <div>
         <p class="pub-title">Using Choice Overload to Degrade Cyber Attacks</p>
@@ -71,9 +98,23 @@
           <a href="https://github.com/ucchol/Choice-Overload-in-Cyber-Defense">code</a>
         </p>
       </div>
+      <script type="text/bibtex">
+@inproceedings{rahman2025overload,
+  title     = {Using Choice Overload to Degrade Cyber Attacks},
+  author    = {Rahman, Asif and Natividad, Carlos and Sayed, Md Abu and
+               Aggarwal, Palvi and Kiekintveld, Christopher D.},
+  booktitle = {Conference on Decision and Game Theory for Security (GameSec)},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {16224},
+  pages     = {23--42},
+  publisher = {Springer},
+  year      = {2025},
+  doi       = {10.1007/978-3-032-08067-7_2}
+}
+      </script>
     </div>
 
-    <div class="pub">
+    <div class="pub" id="p-madood" data-topic="machine-learning out-of-distribution">
       <span class="pub-year">2025</span>
       <div>
         <p class="pub-title">MAD-OOD: A Deep Learning Cluster-Driven Framework for Out-of-Distribution Malware Detection and Classification</p>
@@ -82,9 +123,20 @@
           <a href="https://arxiv.org/abs/2512.17594">arxiv</a>
         </p>
       </div>
+      <script type="text/bibtex">
+@inproceedings{ige2025madood,
+  title     = {MAD-OOD: A Deep Learning Cluster-Driven Framework for
+               Out-of-Distribution Malware Detection and Classification},
+  author    = {Ige, Tosin and Kiekintveld, Christopher D. and Piplai, Aritran and
+               Rahman, Asif and Kolade, Olukunle and Kunapuli, Sasidhar},
+  booktitle = {IEEE International Conference on Trust, Security and Privacy in
+               Computing and Communications (TrustCom)},
+  year      = {2025}
+}
+      </script>
     </div>
 
-    <div class="pub">
+    <div class="pub" id="p-dga" data-topic="machine-learning out-of-distribution">
       <span class="pub-year">2024</span>
       <div>
         <p class="pub-title">Fine-tuning Large Language Models for DGA and DNS Exfiltration Detection</p>
@@ -94,6 +146,19 @@
           <a href="https://arxiv.org/abs/2410.21723">arxiv</a>
         </p>
       </div>
+      <script type="text/bibtex">
+@inproceedings{sayed2024finetuning,
+  title     = {Fine-tuning Large Language Models for DGA and DNS Exfiltration
+               Detection},
+  author    = {Sayed, Md Abu and Rahman, Asif and Kiekintveld, Christopher D. and
+               Garc{\'i}a, Sebasti{\'a}n},
+  booktitle = {Annual Computer Security Applications Conference Workshops
+               (ACSAC Workshops)},
+  year      = {2024},
+  doi       = {10.1109/ACSACW65225.2024.00034}
+}
+      </script>
+    </div>
     </div>
   </section>
 
@@ -102,7 +167,7 @@
     <p class="eyebrow"><span class="s">§</span> contact</p>
     <p>Email is the fastest way to reach me.</p>
     <p class="links">
-      <a href="mailto:arahman3@miners.utep.edu">arahman3@miners.utep.edu</a>
+      <a class="mail" data-u="arahman3" data-d="miners.utep.edu">arahman3 at miners dot utep dot edu</a>
       <a href="https://orcid.org/0009-0004-4939-2065">orcid</a>
       <a href="https://github.com/ucchol">github</a>
       <a href="https://www.linkedin.com/in/asif5028/">linkedin</a>
@@ -115,5 +180,6 @@
   </footer>
 
 </div>
+<script src="site.js"></script>
 </body>
 </html>

@@ -11,6 +11,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=STIX+Two+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script>
+(function(){try{var t=localStorage.getItem('theme');
+if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
+document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -21,6 +26,7 @@
     <ul>
       <li><a href="index.html">about</a></li>
       <li><a href="research.html" class="here">research</a></li>
+      <li><a href="projects.html">projects</a></li>
       <li><a href="publications.html">publications</a></li>
       <li><a href="news.html">news</a></li>
       <li><a href="#contact">contact</a></li>
@@ -34,24 +40,68 @@
   </header>
 
   <section id="main">
-    <h3>Quantal Stackelberg deception</h3>
-    <p>Security games usually let the defender commit to a strategy and assume the attacker answers with a best response. I replace that step with a quantal response and ask what the defender should do when even the noise model may be misspecified. In our GameSec 2026 paper this style of planning works like insurance. It gives up a little value when the attacker model is right and protects a lot of it when the model is wrong. The testbed is a cyber-physical network of sixteen nodes built from real CVE entries.</p>
 
-    <h3>Attacker cognition and choice overload</h3>
-    <p>People choosing from big menus with lots of information often make slower and worse decisions. Our GameSec 2025 paper shows cyber attackers are no exception. In behavioral experiments on tasks like file exfiltration, more options and denser information degraded the quality of their targeting. That points toward defenses that work by making the attacker's decision harder rather than only making the system stronger.</p>
+    <nav class="toc" aria-label="On this page">
+      <a href="#deception">quantal deception</a>
+      <a href="#cognition">attacker cognition</a>
+      <a href="#detection">threat detection</a>
+    </nav>
 
-    <h3>Machine learning for threat detection</h3>
-    <p>Alongside the game-theoretic work, I build detectors for adversary infrastructure. That includes fine-tuned language models for domain generation algorithms and DNS exfiltration, evaluated across 59 real-world DGA families with emphasis on families never seen in training, and cluster-driven methods for flagging malware that falls outside every class a classifier knows.</p>
+    <div data-filterable>
 
-    <p style="margin-top:2rem">Papers for all three threads are on the <a href="publications.html">publications page</a>.</p>
+      <article class="proj" id="deception" data-topic="game-theory cyber-deception">
+        <h3>Quantal Stackelberg deception</h3>
+        <p class="tagline">What a defender should commit to when the attacker responds noisily and the noise model may itself be wrong.</p>
+
+        <p>Security games usually let the defender commit to a strategy and assume the attacker answers with a best response. I replace that step with a quantal response and ask what the defender should do when even the noise model may be misspecified. This style of planning works like insurance. It gives up a little value when the attacker model is right and protects a lot of it when the model is wrong, and the main theorem holds for any finite Stackelberg game with logit response. The testbed is a cyber-physical network of sixteen nodes built from real CVE entries with CVSS derived exploit probabilities.</p>
+
+        <p class="meta">
+          <span class="chip">GameSec 2026 &#183; oral</span>
+          <a href="publications.html#p-beyond">Beyond Best Response</a>
+          <a href="https://arxiv.org/abs/2601.02596">Coordinated Multi-Domain Deception</a>
+          <a href="https://github.com/ucchol/qse-cyber-deception">code</a>
+        </p>
+      </article>
+
+      <article class="proj" id="cognition" data-topic="behavioral cyber-deception">
+        <h3>Attacker cognition and choice overload</h3>
+        <p class="tagline">Behavioral experiments on how people actually pick targets, and process models fit to those choices.</p>
+
+        <p>People choosing from big menus with lots of information often make slower and worse decisions, and cyber attackers are no exception. In behavioral experiments on tasks like file exfiltration, more options and denser information degraded the quality of targeting. The sharper result is that attribute detail rather than option count is what breaks the link between a person's stated preferences and their observed choice, and that the collapse is invisible to the measures practitioners usually trust, since outcome quality and self reported difficulty both fail to track it. That points toward defenses that work by making the attacker's decision harder rather than only making the system stronger.</p>
+
+        <p class="meta">
+          <span class="chip">GameSec 2025 &#183; LNCS 16224</span>
+          <a href="https://doi.org/10.1007/978-3-032-08067-7_2">Using Choice Overload to Degrade Cyber Attacks</a>
+          <a href="https://github.com/ucchol/Choice-Overload-in-Cyber-Defense">code</a>
+        </p>
+      </article>
+
+      <article class="proj" id="detection" data-topic="machine-learning out-of-distribution">
+        <h3>Machine learning for threat detection</h3>
+        <p class="tagline">Detectors evaluated only on threats they were never trained on.</p>
+
+        <p>Alongside the game theoretic work I build detectors for adversary infrastructure, and the organizing constraint is that they are scored on what they have never seen. One line fine tunes language models for domain generation algorithms and DNS exfiltration across 59 real world families, with families withheld from training rather than shuffled into it. Another models each malware family as a class conditional spherical decision boundary and separates in distribution from out of distribution samples with no out of distribution data at training time.</p>
+
+        <p class="meta">
+          <span class="chip">TrustCom 2025</span>
+          <a href="https://arxiv.org/abs/2512.17594">MAD-OOD</a>
+          <a href="https://arxiv.org/abs/2410.21723">Fine-tuning LLMs for DGA Detection</a>
+          <a href="projects.html#nxdomain">nxdomain-sentinel</a>
+        </p>
+      </article>
+
+    </div>
+
+    <p style="margin-top:2.6rem">Every paper is listed on the <a href="publications.html">publications page</a>.</p>
   </section>
+
 
   <!-- CONTACT: same block on every page -->
   <section id="contact">
-    <p class="eyebrow"><span class="s">§</span> contact</p>
+    <p class="eyebrow"><span class="s">&#167;</span> contact</p>
     <p>Email is the fastest way to reach me.</p>
     <p class="links">
-      <a href="mailto:arahman3@miners.utep.edu">arahman3@miners.utep.edu</a>
+      <a class="mail" data-u="arahman3" data-d="miners.utep.edu">arahman3 at miners dot utep dot edu</a>
       <a href="https://orcid.org/0009-0004-4939-2065">orcid</a>
       <a href="https://github.com/ucchol">github</a>
       <a href="https://www.linkedin.com/in/asif5028/">linkedin</a>
@@ -64,5 +114,6 @@
   </footer>
 
 </div>
+<script src="site.js"></script>
 </body>
 </html>

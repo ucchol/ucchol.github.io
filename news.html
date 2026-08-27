@@ -14,6 +14,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=STIX+Two+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script>
+(function(){try{var t=localStorage.getItem('theme');
+if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
+document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -24,6 +29,7 @@
     <ul>
       <li><a href="index.html">about</a></li>
       <li><a href="research.html">research</a></li>
+      <li><a href="projects.html">projects</a></li>
       <li><a href="publications.html">publications</a></li>
       <li><a href="news.html" class="here">news</a></li>
       <li><a href="#contact">contact</a></li>
@@ -54,7 +60,7 @@
     <p class="eyebrow"><span class="s">§</span> contact</p>
     <p>Email is the fastest way to reach me.</p>
     <p class="links">
-      <a href="mailto:arahman3@miners.utep.edu">arahman3@miners.utep.edu</a>
+      <a class="mail" data-u="arahman3" data-d="miners.utep.edu">arahman3 at miners dot utep dot edu</a>
       <a href="https://orcid.org/0009-0004-4939-2065">orcid</a>
       <a href="https://github.com/ucchol">github</a>
       <a href="https://www.linkedin.com/in/asif5028/">linkedin</a>
@@ -67,5 +73,6 @@
   </footer>
 
 </div>
+<script src="site.js"></script>
 </body>
 </html>
