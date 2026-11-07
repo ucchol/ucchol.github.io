@@ -1,0 +1,23 @@
+@font-face {
+  font-family: 'Site Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(assets/roboto-regular.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Site Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(assets/roboto-bold.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Site Condensed';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(assets/roboto-condensed-bold.ttf) format('truetype');
+}
