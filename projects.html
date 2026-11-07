@@ -22,10 +22,27 @@
       <p class="site-description">PhD student in Computer Science<br>The University of Texas at El Paso</p></div>
     <nav aria-label="Main navigation"><ul class="primary-nav"><li><a href="index.html">Home</a></li><li><a href="research.html" aria-current="page">Research</a></li><li><a href="cv.html">CV</a></li></ul></nav>
   </header>
-<main id="main" class="reading-width"><h1>Research code</h1><p>Code and software from my research in cyber deception, decision-making, and threat detection.</p><article class="project" id="qse">
+<main id="main" class="reading-width"><h1>Research code</h1><p>Results, figures, and code from my research in cyber deception, decision-making, and threat detection.</p>
+  <nav class="project-jumps" aria-label="Featured project results">
+    <a href="#qse">Quantal Stackelberg</a>
+    <a href="#choice-overload">Choice overload</a>
+    <a href="#nxdomain">NXDOMAIN Sentinel</a>
+  </nav>
+<article class="project" id="qse">
   <h3><a href="https://github.com/ucchol/qse-cyber-deception">Quantal Stackelberg cyber deception</a></h3>
-  <p>How should a defender plan when its model of an attacker is wrong? This notebook compares quantal Stackelberg equilibrium (QSE) with a perfectly rational best-response baseline, using a cyber–physical deception testbed built from real vulnerabilities. It includes the solver, attacker-model comparisons, and sensitivity experiments.</p>
-  <p class="project-links"><a href="https://github.com/ucchol/qse-cyber-deception">Code &amp; notebook</a> · <a href="research.html#p-beyond">Related paper</a></p>
+  <p class="project-kicker">GameSec 2026 · Published study</p>
+  <p>How should a defender place decoys when its estimate of an attacker’s behavior is wrong? Our study compared quantal Stackelberg equilibrium (QSE) with strong Stackelberg equilibrium (SSE) on two cyber–physical networks built from real vulnerabilities. QSE improved realized defender utility in all 144 comparisons on the tested rationality grids. The study also found that SSE could lead against some attackers that concentrate on a hard best response.</p>
+  <p class="project-links"><a href="https://doi.org/10.1007/978-3-032-40367-4_14">Published paper</a> · <a href="https://arxiv.org/abs/2608.08865">Open preprint</a> · <a href="https://github.com/ucchol/qse-cyber-deception">Code &amp; notebook</a></p>
+  <dl class="project-metrics">
+    <div><dt>Rationality-grid comparisons favoring QSE</dt><dd>144 / 144</dd></div>
+    <div><dt>Parameter configurations tested</dt><dd>25</dd></div>
+    <div><dt>Reported robustness gap in the parameter sweep</dt><dd>46–175%</dd></div>
+  </dl>
+  <figure class="research-figure project-result">
+    <figcaption><strong>What happens when the defender misjudges attacker sensitivity?</strong><span>Each cell shows QSE’s realized defender utility minus SSE’s for one assumed and evaluated sensitivity pair.</span></figcaption>
+    <img src="assets/research/qse-robustness.svg" width="760" height="480" loading="lazy" alt="Six-by-six heatmap of the 16-node CVSS v3 game. All 36 QSE gains are positive and range from 0.03 to 0.49 utility points.">
+    <p class="figure-note">This is one of the study’s four rationality grids. The 46–175% range comes from a separate parameter sweep. <a href="https://arxiv.org/pdf/2608.08865">Figure 2 and Table 4</a> · <a href="assets/research/qse-robustness.svg">Full-size figure</a></p>
+  </figure>
   <figure class="research-figure" data-figure="qse">
     <figcaption><strong>Explore a quantal attacker’s response</strong><span>Move the slider to see how response sensitivity changes target selection.</span></figcaption>
     <div class="figure-controls">
@@ -43,8 +60,15 @@
 
 <article class="project" id="choice-overload">
   <h3><a href="https://github.com/ucchol/Choice-Overload-in-Cyber-Defense">Choice overload in cyber defense</a></h3>
-  <p>This project examines how the number of options and the information attached to them affect decisions. The repository contains experimental data and analysis notebooks for laptop selection, file exfiltration, and port-scanning tasks, including analyses of decision regret.</p>
-  <p class="project-links"><a href="https://github.com/ucchol/Choice-Overload-in-Cyber-Defense">Code &amp; data</a> · <a href="research.html#p-overload">Related paper</a></p>
+  <p class="project-kicker">GameSec 2025 · Published study</p>
+  <p>Can more options and more information slow decisions during a cyber attack? In this human-subject study, participants selected laptops, chose files to exfiltrate, and made choices in an Nmap port-scanning task. The published analysis found adverse effects of choice complexity, with patterns that varied by task.</p>
+  <p class="project-links"><a href="https://doi.org/10.1007/978-3-032-08067-7_2">Published paper</a> · <a href="https://github.com/ucchol/Choice-Overload-in-Cyber-Defense">Code &amp; analysis notebook</a></p>
+  <figure class="research-figure project-result">
+    <figcaption><strong>How long did participants take to decide?</strong><span>Median decision time across 8, 16, and 32 options, shown separately for low- and high-information conditions.</span></figcaption>
+    <img src="assets/research/choice-decision-time.svg" width="760" height="445" loading="lazy" alt="Two line charts compare decision times across information conditions. Nmap scanning took the longest in every condition, reaching a median of 221 seconds with 32 options and high information.">
+    <p class="figure-reading">The median for Nmap port scanning was 76 seconds with 8 low-information options and 221 seconds with 32 high-information options.</p>
+    <p class="figure-note">Descriptive summaries of the experiment’s recorded timers, with 95 observations per task and condition. The endpoint comparison changes both the number of options and the amount of information. <a href="https://github.com/ucchol/Choice-Overload-in-Cyber-Defense/blob/906789efb78ccfd68b265640b1aed2b068b52d1f/IARPA_CO_1A_Asif_Rahman_UTEP.ipynb">Notebook timer analysis</a> · <a href="assets/research/choice-decision-time.svg">Full-size figure</a></p>
+  </figure>
   <figure class="research-figure" data-figure="choice">
     <figcaption><strong>Explore the information in a choice set</strong><span>Change the options and attributes, then select a target in the table.</span></figcaption>
     <div class="figure-controls">
@@ -79,8 +103,23 @@
 
 <article class="project" id="nxdomain">
   <h3><a href="https://github.com/ucchol/nxdomain-sentinel">NXDOMAIN Sentinel</a></h3>
-  <p>A domain-name classifier evaluated on malware families withheld from training. A separate novelty gate measures distance from known families in the model’s representation. Together, the experiments examine two questions: does a domain look malicious, and does it look unfamiliar?</p>
-  <p class="project-links"><a href="https://github.com/ucchol/nxdomain-sentinel">Code &amp; evaluation</a></p>
+  <p class="project-kicker">Open-source research prototype · Alert-only pilot</p>
+  <p>NXDOMAIN Sentinel groups repeated failed DNS lookups into cases an analyst can investigate. It scores how generated a domain looks and independently measures how far it is from known malware families. The replay benchmark tests whether combining those signals with device behavior helps identify episodes the classifier misses.</p>
+  <p class="project-links"><a href="https://github.com/ucchol/nxdomain-sentinel">Code &amp; methods</a> · <a href="https://github.com/ucchol/nxdomain-sentinel#try-the-synthetic-benchmark">Runnable synthetic example</a></p>
+  <ol class="project-flow" aria-label="NXDOMAIN Sentinel workflow">
+    <li>Read resolver logs</li><li>Group failures by device and time</li><li>Score domain likelihood and novelty</li><li>Emit a case for review</li>
+  </ol>
+  <dl class="project-metrics">
+    <div><dt>DGA families in the historical benchmark</dt><dd>25</dd></div>
+    <div><dt>Median recall loss when a family was withheld</dt><dd>5.6 pp</dd></div>
+    <div><dt>False-positive rate targeted in calibration</dt><dd>0.1%</dd></div>
+  </dl>
+  <figure class="research-figure project-result">
+    <figcaption><strong>How much does recall change on an unseen family?</strong><span>The five largest recall losses and three dictionary-based families from the historical domain benchmark.</span></figcaption>
+    <img src="assets/research/sentinel-family-holdout.svg" width="860" height="490" loading="lazy" alt="Paired recall plot. Vawtrak fell from 70.2% to 1.5% when held out, and all three dictionary-based families had low recall.">
+    <p class="figure-note">Domain-level evaluation at the calibrated operating point. <a href="https://github.com/ucchol/nxdomain-sentinel/blob/1418ddfe8c9da6a7ffb2fa62f870348a69766fa3/artifacts/analysis.json">Paired family results</a> · <a href="assets/research/sentinel-family-holdout.svg">Full-size figure</a></p>
+  </figure>
+  <p class="project-pilot"><strong>Pilot question.</strong> Can the combined detector find more previously unseen DGA episodes at the same observed alert rate? The replay and synthetic benchmark run locally. The real-traffic evaluation needs authorized resolver logs and reviewed case labels.</p>
   <figure class="research-figure" data-figure="nx">
     <figcaption><strong>Does detection transfer to an unseen family?</strong><span>Select a family to compare the fraction of its domains detected. Higher is better.</span></figcaption>
     <div class="figure-controls">
