@@ -36,6 +36,8 @@ img { display: block; max-width: 100%; }
 .scholar-icon { font-family: Georgia, serif; font-size: 29px; font-weight: 700; line-height: 1; }
 .linkedin-icon { font-family: Arial, sans-serif; font-size: 22px; font-weight: 700; line-height: 1; }
 .orcid-icon { font-family: Arial, sans-serif; font-size: 21px; line-height: 1; letter-spacing: -1px; }
+.bio { color: #000; }
+.bio a { text-decoration: underline; }
 .bio p { margin-bottom: 23px; }
 .bio p:last-child { margin-bottom: 0; }
 .section-rule { max-width: 740px; margin: 62px auto 58px; border: 0; border-top: 1px solid var(--line); }
@@ -59,6 +61,9 @@ h3 { font-size: 18px; line-height: 1.5; margin: 0 0 8px; }
 .section-nav { display: flex; flex-wrap: wrap; gap: 12px 26px; margin: 28px 0 38px; padding-bottom: 22px; border-bottom: 1px solid var(--line); }
 .research-themes { margin-bottom: 48px; }
 .research-themes p { margin-bottom: 23px; }
+.research-paper-links { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: -10px 0 28px; }
+.research-paper-links a { display: inline-block; border: 1px solid #b8ccbf; border-radius: 999px; background: #f0f6f1; padding: 3px 12px; font-size: 14px; }
+.research-paper-links a:hover { background: #e4efe7; }
 .publication-year { font-size: 26px; color: var(--muted); margin-top: 36px; margin-bottom: 22px; }
 .publication { margin-bottom: 32px; scroll-margin-top: 28px; }
 .publication h3 { font-size: 18px; margin-bottom: 7px; }

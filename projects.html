@@ -26,6 +26,7 @@
   <nav class="project-jumps" aria-label="Featured project results">
     <a href="#qse">Quantal Stackelberg</a>
     <a href="#choice-overload">Choice overload</a>
+    <a href="#ndrl">Network containment</a>
     <a href="#nxdomain">NXDOMAIN Sentinel</a>
   </nav>
 <article class="project" id="qse">
@@ -85,11 +86,24 @@
 </article>
 
 <article class="project" id="ndrl">
-  <h3><a href="https://github.com/ucchol/network-defense-rl">Network defense with reinforcement learning</a></h3>
-  <p>A defender allocates limited hardening and incident-response resources while an attacker probes a network. This project compares learned policies with optimization and heuristic baselines, asking whether behavior learned on smaller networks transfers to larger ones.</p>
-  <p class="project-links"><a href="https://github.com/ucchol/network-defense-rl">Code &amp; results</a> · <a href="https://github.com/ucchol/network-defense-rl/blob/main/notebooks/network_defense_rl.ipynb">Notebook</a></p>
+  <h3><a href="https://github.com/ucchol/network-defense-rl">Network defense and containment planning</a></h3>
+  <p class="project-kicker">Open-source project · Synthetic containment study</p>
+  <p>When an alert suggests lateral movement, which response blocks the most risk while keeping critical services reachable? This exercise models five hosts across three zones, with a directed attack graph, noisy alerts, and a shared response budget. The demo ranks actions such as inspecting a host, restricting a link, or isolating a device and explains what each action protects.</p>
+  <p class="project-links"><a href="https://github.com/ucchol/network-defense-rl">Code &amp; results</a> · <a href="https://github.com/ucchol/network-defense-rl/blob/1aa86f0b04c3b5c42434bbe4c5d1cff3a7b1688f/docs/containment.md">Methods &amp; reproduction</a> · <a href="https://github.com/ucchol/network-defense-rl/blob/1aa86f0b04c3b5c42434bbe4c5d1cff3a7b1688f/results/containment_demo.json">Ranked action example</a></p>
+  <dl class="project-metrics">
+    <div><dt>Simulated conditions</dt><dd>11</dd></div>
+    <div><dt>Matched scenario seeds per condition</dt><dd>300</dd></div>
+    <div><dt>Mean modeled cost, greedy to two-step</dt><dd>1.155 → 0.911</dd></div>
+  </dl>
+  <figure class="research-figure project-result">
+    <figcaption><strong>When does looking two steps ahead help?</strong><span>Paired cost differences across simulated conditions, with 95% bootstrap intervals. Values to the right of zero favor two-step planning.</span></figcaption>
+    <img src="assets/research/network-containment-planning.svg" width="960" height="617" loading="lazy" alt="Paired cost comparison across eleven simulated conditions. Two-step planning saved modeled cost in each noisy-alert condition. It tied greedy in the base protected graph when the full compromise state was visible.">
+    <p class="figure-reading">In the base graph with noisy alerts and protected services, critical compromise fell from <strong>30.7% to 21.0%</strong>. Two-step planning averaged 1.33 response tokens versus 0.69 for greedy under the same four-token cap.</p>
+    <p class="figure-note">The two-step variants with and without planned responses to future alerts matched in these runs. These results use a synthetic five-host network. <a href="https://github.com/ucchol/network-defense-rl/blob/1aa86f0b04c3b5c42434bbe4c5d1cff3a7b1688f/results/containment_summary.csv">Benchmark data</a> · <a href="assets/research/network-containment-planning.svg">Full-size figure</a></p>
+  </figure>
+  <p class="project-links"><a href="https://github.com/ucchol/network-defense-rl/blob/main/notebooks/network_defense_rl.ipynb">Earlier reinforcement learning notebook</a></p>
   <figure class="research-figure" data-figure="rl">
-    <figcaption><strong>What happens when the network grows?</strong><span>Compare the fraction of network value lost across two size ranges. Lower is better.</span></figcaption>
+    <figcaption><strong>Earlier RL benchmark: what happens when the network grows?</strong><span>Compare the fraction of network value lost across two size ranges. Lower is better.</span></figcaption>
     <div class="figure-controls">
       <label for="rl-size">Network size <select id="rl-size"><option value="small">8–14 nodes</option><option value="large" selected>15–20 nodes</option></select></label>
     </div>
