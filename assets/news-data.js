@@ -1,4 +1,5 @@
 // Edit this list to add or update news. Keep each date as YYYY-MM or YYYY-MM-DD.
+// The ICNC, TrustCom, and WAITI acceptance entries use the scheduled notification dates.
 window.academicNews = [
   {
     "date": "2026-10",
@@ -25,6 +26,10 @@ window.academicNews = [
     "html": "Our paper <a href=\"https://doi.org/10.1109/ICNC68183.2026.11416975\" target=\"_blank\" rel=\"noopener\">Coordinated Multi-Domain Deception: A Stackelberg Game Approach</a> appeared in the ICNC 2026 proceedings. We studied how to coordinate decoys across connected cyber and physical systems."
   },
   {
+    "date": "2025-11-15",
+    "html": "Our paper <a href=\"https://arxiv.org/abs/2601.02596\" target=\"_blank\" rel=\"noopener\">Coordinated Multi-Domain Deception: A Stackelberg Game Approach</a> was accepted at ICNC 2026."
+  },
+  {
     "date": "2025-11-14",
     "html": "Our paper <a href=\"https://doi.org/10.1109/Trustcom66490.2025.00287\" target=\"_blank\" rel=\"noopener\">MAD-OOD: A Deep Learning Cluster-Driven Framework for an Out-of-Distribution Malware Detection and Classification</a> appeared in the TrustCom 2025 proceedings. We evaluated a method for detecting malware from unfamiliar families."
   },
@@ -41,6 +46,10 @@ window.academicNews = [
     "html": "Received a partial travel grant to attend GameSec 2025."
   },
   {
+    "date": "2025-10-05",
+    "html": "Our paper <a href=\"https://doi.org/10.1109/Trustcom66490.2025.00287\" target=\"_blank\" rel=\"noopener\">MAD-OOD: A Deep Learning Cluster-Driven Framework for an Out-of-Distribution Malware Detection and Classification</a> was accepted at IEEE TrustCom 2025."
+  },
+  {
     "date": "2025-09-29",
     "html": "Selected to serve on the program committee for the AI for Social Impact (AISI) track at AAAI 2026."
   },
@@ -51,6 +60,10 @@ window.academicNews = [
   {
     "date": "2024-11",
     "html": "Passed the qualifying talk for my PhD dissertation."
+  },
+  {
+    "date": "2024-10-20",
+    "html": "Our paper <a href=\"https://arxiv.org/abs/2410.21723\" target=\"_blank\" rel=\"noopener\">Fine-tuning Large Language Models for DGA and DNS Exfiltration Detection</a> was accepted at the Workshop on AI for Cyber Threat Intelligence (WAITI), part of ACSAC 2024."
   },
   {
     "date": "2024-01",
