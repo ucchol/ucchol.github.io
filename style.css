@@ -52,7 +52,9 @@ h3 { font-size: 18px; line-height: 1.5; margin: 0 0 8px; }
 .news-list p { margin: 0; }
 .news-list .news-empty { display: block; }
 .news-intro { color: var(--muted); margin: -12px 0 28px; }
-.news-archive-link { margin: 0; }
+.news-archive > summary { width: fit-content; color: var(--green); cursor: pointer; }
+.news-archive > summary:hover { text-decoration: underline; text-underline-offset: .18em; }
+.news-archive > .news-list { margin-top: 24px; }
 .text-link { display: inline-block; margin-top: 4px; }
 .site-footer { border-top: 1px solid var(--line); margin-top: 70px; padding: 24px 0 30px; display: flex; gap: 20px; justify-content: space-between; color: var(--muted); font-size: 13px; }
 .site-footer p { margin: 0; }
